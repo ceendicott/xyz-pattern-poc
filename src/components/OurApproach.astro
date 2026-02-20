@@ -1,0 +1,50 @@
+---
+const approachBg = 'https://www.figma.com/api/mcp/asset/2d0f268b-0a01-444e-90ec-3c04adce8cbe';
+---
+
+<section class="relative overflow-hidden" id="approach">
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={approachBg}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Content wrapper -->
+  <div class="relative z-10 flex items-stretch min-h-[620px]">
+    <!-- Invisible left spacer (~31% width) -->
+    <div class="hidden lg:block lg:w-[31%] shrink-0"></div>
+
+    <!-- Orange content block -->
+    <div
+      class="w-full lg:w-[683px] shrink-0 bg-[#F7931E] px-8 lg:px-16 py-16 lg:py-24 flex flex-col items-center text-center"
+    >
+      <h2
+        class="heading-2 text-black mb-8"
+      >
+        Our Approach
+      </h2>
+
+      <p
+        class="body-text text-black max-w-[520px] mb-10"
+        style="font-family: var(--font-spartan)"
+      >
+        Think of us as a collaborative technical partner, not a vendor. Our
+        process begins by understanding your brand's fit identity and design
+        intent, then developing accurate, balanced patterns that support that
+        vision. From there, we validate fit through digital or physical
+        sampling, refine where needed, and prepare final assets that are ready
+        for production. Throughout development, we ensure smooth communication
+        and a clean handoff, so your team can move forward confidently, without
+        confusion or rework.
+      </p>
+
+      <a href="/about" class="btn-black">
+        Our Story
+      </a>
+    </div>
+  </div>
+</section>

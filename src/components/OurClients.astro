@@ -1,0 +1,91 @@
+---
+// Client logos from Figma
+const logos = [
+  {
+    src: 'https://www.figma.com/api/mcp/asset/75a7ed1b-ee60-4d2b-ad90-91e79070b1d8',
+    alt: 'Elevate Movement',
+    width: 280,
+  },
+  {
+    src: 'https://www.figma.com/api/mcp/asset/4290e802-0588-43ed-a574-e581c2f309f8',
+    alt: 'Athleta',
+    width: 200,
+  },
+  {
+    src: 'https://www.figma.com/api/mcp/asset/3d5d84aa-3554-4b8c-a3f7-cef1f5d5133a',
+    alt: 'Byer California',
+    width: 240,
+  },
+  {
+    src: 'https://www.figma.com/api/mcp/asset/6a05e7d7-8d66-4059-98c4-ec77de55d8fc',
+    alt: 'Halston',
+    width: 200,
+  },
+  {
+    src: 'https://www.figma.com/api/mcp/asset/08eddacc-1353-4ac3-acbd-73e0ba5bb79e',
+    alt: 'Weston Jon Boucher',
+    width: 260,
+  },
+];
+---
+
+<section class="bg-white py-20 lg:py-24" id="clients">
+  <div class="section-container mb-14">
+    <h2
+      class="heading-2 text-[#F7931E] text-center"
+      style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+    >
+      Our Clients
+    </h2>
+  </div>
+
+  <!-- Logo marquee -->
+  <div
+    class="overflow-hidden"
+    x-data="{}"
+  >
+    <div
+      class="flex items-center gap-12 lg:gap-20 animate-marquee whitespace-nowrap"
+      style="animation: marquee 28s linear infinite;"
+    >
+      <!-- First pass -->
+      {logos.map((logo) => (
+        <div class="shrink-0 flex items-center justify-center h-24 px-4">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            style={`max-width: ${logo.width}px`}
+            class="h-auto max-h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+          />
+        </div>
+      ))}
+      <!-- Duplicate for seamless loop -->
+      {logos.map((logo) => (
+        <div class="shrink-0 flex items-center justify-center h-24 px-4">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            style={`max-width: ${logo.width}px`}
+            class="h-auto max-h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+</style>

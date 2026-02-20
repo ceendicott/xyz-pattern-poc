@@ -1,0 +1,141 @@
+---
+// Arrow icon for buttons
+const arrowIcon = 'https://www.figma.com/api/mcp/asset/d23b66d7-9476-4236-a382-ea67dc884058';
+
+// Service card data – images are Figma placeholders
+const services = [
+  {
+    title: '2D\nPatterns',
+    description:
+      'Clean, accurate digital patterns that establish consistent fit.',
+    bg: '#4a4a4a',
+  },
+  {
+    title: '3D Prototyping',
+    description:
+      'True-to-life virtual samples to reduce physical protos and accelerate decisions.',
+    bg: '#3a3a3a',
+  },
+  {
+    title: 'Size\nGrading',
+    description:
+      'Intentional scaling that preserves fit, shape, and brand identity.',
+    bg: '#2e2e2e',
+  },
+  {
+    title: 'Marker Layout &\nFabric Efficiency',
+    description:
+      'Smart markers that minimize waste and reduce production cost.',
+    bg: '#383838',
+  },
+  {
+    title: 'Full\nService Support',
+    description:
+      'Fit sessions, tech packs, vendor communication, sample management.',
+    bg: '#444444',
+  },
+];
+---
+
+<section class="bg-[rgba(231,231,231,0.5)] py-20 lg:py-28" id="services">
+  <div class="section-container mb-14">
+
+    <!-- Section header -->
+    <h2
+      class="heading-2 text-[#F7931E] mb-6"
+      style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+    >
+      What We Do
+    </h2>
+
+    <p class="body-text text-black max-w-[1258px] mb-8" style="font-family: var(--font-spartan)">
+      Our team specializes in pattern development and technical services that
+      simplify your workflow and reduce costly missteps:
+    </p>
+
+    <a
+      href="/services"
+      class="btn-primary"
+      style="box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.5)"
+    >
+      Explore Our Services
+      <img src={arrowIcon} alt="" class="w-[22px] h-[17px] rotate-45" />
+    </a>
+  </div>
+
+  <!-- Service cards carousel -->
+  <div
+    x-data="{
+      get carousel() { return this.$refs.track },
+      scrollLeft() { this.carousel.scrollBy({ left: -470, behavior: 'smooth' }) },
+      scrollRight() { this.carousel.scrollBy({ left: 470, behavior: 'smooth' }) }
+    }"
+    class="relative"
+  >
+    <!-- Prev button -->
+    <button
+      @click="scrollLeft()"
+      class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md transition-all"
+      aria-label="Previous"
+    >
+      <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Scrollable track -->
+    <div
+      x-ref="track"
+      class="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 lg:px-[71px] pb-2 scrollbar-none"
+      style="scrollbar-width: none; -ms-overflow-style: none;"
+    >
+      {services.map((service) => (
+        <div
+          class="snap-start shrink-0 w-[80vw] sm:w-[420px] lg:w-[calc((100vw-142px-80px)/4)] xl:w-[420px] h-[550px] rounded-[5px] overflow-hidden relative flex flex-col justify-between"
+          style={`background-color: ${service.bg}`}
+        >
+          <!-- Service name overlay (top) -->
+          <div class="p-8 pt-10">
+            <p
+              class="text-white font-light leading-tight whitespace-pre-line"
+              style="font-family: var(--font-inter); font-size: clamp(36px, 3.5vw, 48px); letter-spacing: -0.02em;"
+            >
+              {service.title}
+            </p>
+          </div>
+
+          <!-- Bottom info panel (frosted glass) -->
+          <div
+            class="px-8 py-7 rounded-tl-[40px] rounded-tr-[40px] shadow-[0px_-15px_30px_0px_rgba(0,0,0,0.05)]"
+            style="background: linear-gradient(90deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.88) 100%)"
+          >
+            <p
+              class="text-black text-lg leading-6"
+              style="font-family: var(--font-spartan)"
+            >
+              {service.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Next button -->
+    <button
+      @click="scrollRight()"
+      class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md transition-all"
+      aria-label="Next"
+    >
+      <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+</section>
+
+<style>
+  /* Hide scrollbar across browsers */
+  [x-ref="track"]::-webkit-scrollbar {
+    display: none;
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+const textureBg = 'https://www.figma.com/api/mcp/asset/254c70e7-514d-450f-b891-84d58eef5510';
+const arrowIcon = 'https://www.figma.com/api/mcp/asset/d23b66d7-9476-4236-a382-ea67dc884058';
+
+const comparisons = [
+  {
+    priority: 'Consistent, production-ready fit',
+    benefit: 'Cleaner samples and fewer revisions',
+  },
+  {
+    priority: 'Clear, reliable communication',
+    benefit: 'No guesswork, you always know the next step',
+  },
+  {
+    priority: 'Integrated digital workflow',
+    benefit: 'No data loss, no rework, no friction with factories',
+  },
+  {
+    priority: 'Efficient development cycles',
+    benefit: 'Faster timelines and reduced material waste',
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-black py-20 lg:py-28" id="why-us">
+  <!-- Background texture -->
+  <div class="absolute inset-0 z-0 opacity-35">
+    <img
+      src={textureBg}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="relative z-10 section-container">
+
+    <!-- Section heading -->
+    <h2
+      class="heading-2 text-[#F7931E] text-center mb-6"
+      style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+    >
+      Why Brands Work With Us
+    </h2>
+
+    <p
+      class="body-text text-white text-center max-w-[787px] mx-auto mb-16"
+      style="font-family: var(--font-spartan)"
+    >
+      Most product challenges trace back to unclear communication or patterns
+      that don't translate in production. We solve both.
+    </p>
+
+    <!-- Two-column comparison table -->
+    <div class="max-w-[1100px] mx-auto">
+
+      <!-- Column headers -->
+      <div class="grid grid-cols-2 gap-8 lg:gap-16 mb-6">
+        <h3
+          class="heading-3 text-[#F7931E]"
+          style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+        >
+          What We Prioritize
+        </h3>
+        <h3
+          class="heading-3 text-[#F7931E] text-right"
+          style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+        >
+          What It Means for You
+        </h3>
+      </div>
+
+      <!-- Divider below headers -->
+      <div class="border-t border-white/30 mb-0"></div>
+
+      <!-- Comparison rows -->
+      {comparisons.map((row) => (
+        <div>
+          <div class="grid grid-cols-2 gap-8 lg:gap-16 py-6 items-center relative">
+            <!-- Vertical center divider -->
+            <div class="absolute left-1/2 top-0 bottom-0 w-px bg-white/20 hidden lg:block"></div>
+
+            <p
+              class="text-white font-medium text-xl leading-8 tracking-[-0.02em]"
+              style="font-family: var(--font-spartan)"
+            >
+              {row.priority}
+            </p>
+            <p
+              class="text-white font-medium text-xl leading-6 text-right tracking-[-0.02em]"
+              style="font-family: var(--font-spartan)"
+            >
+              {row.benefit}
+            </p>
+          </div>
+          <div class="border-t border-white/20"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-16 text-center">
+      <p
+        class="text-white text-center mb-8 max-w-[700px] mx-auto"
+        style="font-family: var(--font-inter); font-size: 36px; font-weight: 400; letter-spacing: -0.02em; line-height: 1;"
+      >
+        We make the development process smoother, not more complicated.
+      </p>
+
+      <a
+        href="/about"
+        class="btn-primary"
+        style="box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.5)"
+      >
+        Learn More
+        <img src={arrowIcon} alt="" class="w-[22px] h-[17px] rotate-45" />
+      </a>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,55 @@
+---
+// Figma assets
+const heroBg = 'https://www.figma.com/api/mcp/asset/fecc7ce7-0d64-43c0-96e3-c877aaa3c3dc';
+const vectorLeft = 'https://www.figma.com/api/mcp/asset/d1b18bd7-42e7-47ba-8302-88c1061dc88d';
+const arrowIcon = 'https://www.figma.com/api/mcp/asset/d23b66d7-9476-4236-a382-ea67dc884058';
+---
+
+<section class="relative min-h-screen flex flex-col overflow-hidden pt-20">
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={heroBg}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+  </div>
+
+  <!-- Decorative tape-measure / pattern vectors -->
+  <img
+    src={vectorLeft}
+    alt=""
+    class="absolute left-[-5%] top-[3%] w-[14%] pointer-events-none z-10 opacity-90"
+  />
+  <img
+    src={vectorLeft}
+    alt=""
+    class="absolute right-[-5%] top-[3%] w-[14%] pointer-events-none z-10 opacity-90 scale-x-[-1]"
+  />
+
+  <!-- Hero content -->
+  <div class="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-4 py-24">
+    <h1
+      class="heading-1 text-black max-w-[996px] mb-6"
+      style="text-shadow: 0px 1px 1px rgba(0,0,0,0.1)"
+    >
+      Precision Patternmaking.<br />
+      Confident Development.<br />
+      Clear Communication.
+    </h1>
+
+    <p
+      class="body-text text-black max-w-[766px] mb-10"
+      style="font-family: var(--font-spartan)"
+    >
+      We help apparel brands bring their designs to life with production-ready
+      patterns, consistent fit standards, and an efficient development process
+      that supports your long-term growth.
+    </p>
+
+    <a href="/contact" class="btn-black text-white px-5 py-3 rounded-[10px] font-medium text-xl" style="font-family: var(--font-spartan)">
+      Start Your Project
+    </a>
+  </div>
+</section>

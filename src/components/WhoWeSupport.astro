@@ -1,0 +1,66 @@
+---
+const supportPhoto = 'https://www.figma.com/api/mcp/asset/7c72c735-48b8-4377-9f04-8435fbc27c41';
+const arrowIcon = 'https://www.figma.com/api/mcp/asset/d23b66d7-9476-4236-a382-ea67dc884058';
+
+const supporters = [
+  'Independent and emerging designers building their first assortments',
+  'Established brands scaling or refining fit foundations',
+  'Technical and product development teams needing pattern accuracy and reliable documentation',
+  'Specialty categories requiring precision and mobility (performance, dancewear, medical, outdoor)',
+];
+---
+
+<section class="bg-white py-20 lg:py-28" id="who-we-support">
+  <div class="section-container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: Content -->
+      <div>
+        <h2
+          class="heading-2 text-[#F7931E] mb-8"
+          style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+        >
+          Who We Support
+        </h2>
+
+        <p class="body-text text-black mb-4" style="font-family: var(--font-spartan)">
+          Our partners include (but isn't limited to!):
+        </p>
+
+        <ul class="space-y-4 mb-8">
+          {supporters.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-2 w-2 h-2 rounded-full bg-[#F7931E] shrink-0"></span>
+              <p class="body-text text-black" style="font-family: var(--font-spartan)">{item}</p>
+            </li>
+          ))}
+        </ul>
+
+        <p class="body-text text-black mb-10" style="font-family: var(--font-spartan)">
+          If your goal is to ensure your garment fits well, moves well, and
+          produces cleanly, we're the partner you want in the work.
+        </p>
+
+        <a
+          href="/contact"
+          class="btn-primary"
+          style="box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.5)"
+        >
+          Start Your Project
+          <img src={arrowIcon} alt="" class="w-[22px] h-[17px] rotate-45" />
+        </a>
+      </div>
+
+      <!-- Right: Photo -->
+      <div class="rounded-[5px] overflow-hidden">
+        <img
+          src={supportPhoto}
+          alt="Hands working with fabric and pattern"
+          class="w-full h-[600px] lg:h-[688px] object-cover rounded-[5px]"
+          loading="lazy"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>

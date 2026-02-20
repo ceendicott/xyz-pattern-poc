@@ -1,0 +1,265 @@
+---
+// Figma assets
+const footerLogo = 'https://www.figma.com/api/mcp/asset/f7fdd105-c352-458d-9781-8060101b0766';
+const socialIcons = 'https://www.figma.com/api/mcp/asset/56d669d8-2e3e-4616-8884-b574771175fc';
+const arrowWhite = 'https://www.figma.com/api/mcp/asset/71b957c8-aa52-4da9-9b26-54cb0f0fd02b';
+const arrowOrange = 'https://www.figma.com/api/mcp/asset/70cbc223-1bd1-4f58-b95a-84f0862523db';
+const formCardBg = 'https://www.figma.com/api/mcp/asset/55315697-203b-4a30-af55-ff74befc7700';
+---
+
+<!-- ===== CONTACT + FOOTER SECTION ===== -->
+<section class="bg-white py-20 lg:py-28" id="contact">
+  <div class="section-container">
+
+    <!-- Horizontal rule above contact section -->
+    <div class="border-t border-gray-200 mb-16"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: "Move Forward with Confidence" + CTAs -->
+      <div class="flex flex-col gap-6">
+        <!-- Large XYZ footer logo -->
+        <img
+          src={footerLogo}
+          alt="XYZ Pattern Services"
+          class="w-[240px] lg:w-[320px] h-auto mb-4"
+          loading="lazy"
+        />
+
+        <h2
+          class="text-black leading-none tracking-[-0.02em]"
+          style="font-family: var(--font-inter); font-size: clamp(28px, 3vw, 36px); font-weight: 400;"
+        >
+          Move Forward with Confidence.
+        </h2>
+
+        <div class="body-text text-black space-y-4 max-w-[764px]" style="font-family: var(--font-spartan)">
+          <p>
+            Strong patterns create consistent fit, smoother sampling, and
+            production you can trust. Whether you're developing your first style
+            or refining an established line, we work alongside your team to
+            ensure accuracy, clarity, and a clear path to production.
+          </p>
+          <p>
+            Take a closer look at how we work, or reach out for a project
+            consultation. We'd love to learn about your goals and discuss how
+            we can support your timeline and development needs.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+          <a
+            href="/services"
+            class="btn-black"
+            style="box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.5)"
+          >
+            Explore Our Services
+            <img src={arrowWhite} alt="" class="w-[22px] h-[17px] rotate-45" />
+          </a>
+          <a
+            href="/contact"
+            class="btn-black-orange"
+            style="box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.5)"
+          >
+            Schedule a Conversation
+            <img src={arrowOrange} alt="" class="w-[22px] h-[17px] rotate-45" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Contact form card -->
+      <div class="relative">
+        <!-- Card background image (subtle texture) -->
+        <div
+          class="relative rounded-[10px] overflow-hidden shadow-[0px_2px_16px_rgba(0,0,0,0.08)] border border-gray-100"
+        >
+          <div
+            class="absolute inset-0 z-0 rounded-[10px] overflow-hidden"
+          >
+            <img src={formCardBg} alt="" class="w-full h-full object-cover opacity-30" />
+          </div>
+
+          <div class="relative z-10 bg-white/90 px-8 lg:px-10 py-10 rounded-[10px]">
+
+            <!-- Form heading -->
+            <div class="mb-8">
+              <h3
+                class="text-black mb-1"
+                style="font-family: var(--font-inter); font-size: 36px; font-weight: 400; letter-spacing: -0.02em; line-height: 1;"
+              >
+                Get Started Today.
+              </h3>
+              <p class="text-base text-gray-500 mt-2" style="font-family: var(--font-spartan)">
+                Fill out the form below and our team will get back to you promptly.
+              </p>
+            </div>
+
+            <!-- Contact form -->
+            <form
+              method="POST"
+              action="/api/contact"
+              x-data="{
+                submitting: false,
+                submitted: false,
+                async handleSubmit(e) {
+                  this.submitting = true;
+                  await new Promise(r => setTimeout(r, 800));
+                  this.submitting = false;
+                  this.submitted = true;
+                }
+              }"
+              @submit.prevent="handleSubmit"
+              class="space-y-5"
+            >
+              <!-- Row 1: Full Name + Company Name -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    class="block text-base text-black mb-1.5 font-normal"
+                    style="font-family: var(--font-spartan)"
+                    for="full-name"
+                  >
+                    Full Name*
+                  </label>
+                  <input
+                    id="full-name"
+                    name="fullName"
+                    type="text"
+                    required
+                    placeholder="Full Name"
+                    class="w-full h-[53px] px-4 border border-[#e2e2e2] rounded-[10px] text-base text-black placeholder-[#e2e2e2] focus:outline-none focus:border-[#F7931E] transition-colors"
+                    style="font-family: var(--font-spartan)"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-base text-black mb-1.5 font-normal"
+                    style="font-family: var(--font-spartan)"
+                    for="company-name"
+                  >
+                    Company Name
+                  </label>
+                  <input
+                    id="company-name"
+                    name="companyName"
+                    type="text"
+                    placeholder="Company Name"
+                    class="w-full h-[53px] px-4 border border-[#e2e2e2] rounded-[10px] text-base text-black placeholder-[#e2e2e2] focus:outline-none focus:border-[#F7931E] transition-colors"
+                    style="font-family: var(--font-spartan)"
+                  />
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label
+                  class="block text-base text-black mb-1.5 font-normal"
+                  style="font-family: var(--font-spartan)"
+                  for="email"
+                >
+                  Email*
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full h-[53px] px-4 border border-[#d9d9d9] rounded-[10px] text-base text-black placeholder-[#d9d9d9] focus:outline-none focus:border-[#F7931E] transition-colors"
+                  style="font-family: var(--font-spartan)"
+                />
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label
+                  class="block text-base text-black mb-1.5 font-normal"
+                  style="font-family: var(--font-spartan)"
+                  for="phone"
+                >
+                  Phone number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Your phone number"
+                  class="w-full h-[53px] px-4 border border-[#d9d9d9] rounded-[10px] text-base text-black placeholder-[#d9d9d9] focus:outline-none focus:border-[#F7931E] transition-colors"
+                  style="font-family: var(--font-spartan)"
+                />
+              </div>
+
+              <!-- Project description -->
+              <div>
+                <label
+                  class="block text-base text-black mb-1.5 font-normal"
+                  style="font-family: var(--font-spartan)"
+                  for="project"
+                >
+                  Tell Us About Your Project*
+                </label>
+                <textarea
+                  id="project"
+                  name="project"
+                  required
+                  rows="5"
+                  placeholder="Comments"
+                  class="w-full px-4 py-3 border border-[#d9d9d9] rounded-[10px] text-base text-black placeholder-[#d9d9d9] focus:outline-none focus:border-[#F7931E] transition-colors resize-none"
+                  style="font-family: var(--font-spartan)"
+                ></textarea>
+              </div>
+
+              <!-- Submit button -->
+              <button
+                type="submit"
+                class="w-full h-[60px] bg-[#F7931E] text-white rounded-[10px] font-medium text-xl tracking-wider uppercase cursor-pointer transition-colors hover:bg-[#e07f0e] disabled:opacity-60"
+                style="font-family: var(--font-spartan); text-shadow: 0px 1px 1px rgba(0,0,0,0.5); box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5);"
+                :disabled="submitting"
+              >
+                <span x-show="!submitting && !submitted">Send</span>
+                <span x-show="submitting">Sending…</span>
+                <span x-show="submitted">Sent! We'll be in touch.</span>
+              </button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER BAR ===== -->
+<footer class="bg-white border-t border-gray-200">
+  <div class="section-container py-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <!-- Copyright -->
+      <p
+        class="text-base text-black tracking-[-0.02em]"
+        style="font-family: var(--font-spartan)"
+      >
+        XYZ Pattern Services © 2025 All Rights Reserved
+      </p>
+
+      <!-- Social icons -->
+      <img
+        src={socialIcons}
+        alt="Follow us on Facebook, Instagram, and LinkedIn"
+        class="h-[42px] w-auto"
+        loading="lazy"
+      />
+
+      <!-- Legal links -->
+      <div
+        class="flex items-center gap-12 text-base text-black tracking-[-0.02em]"
+        style="font-family: var(--font-spartan)"
+      >
+        <a href="/privacy-policy" class="hover:text-[#F7931E] transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-[#F7931E] transition-colors">Terms &amp; Conditions</a>
+      </div>
+
+    </div>
+  </div>
+</footer>

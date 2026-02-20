@@ -1,0 +1,73 @@
+# Sveltia CMS Configuration
+# Docs: https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/xyz-pattern-poc
+  branch: main
+  # OAuth proxy for Cloudflare Workers (deploy separately):
+  # base_url: https://your-oauth-worker.workers.dev
+
+# Where uploaded media is stored
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+# Site URL for preview links
+site_url: https://xyz-pattern-poc.pages.dev
+
+# Content collections
+collections:
+
+  # ----- HOME PAGE -----
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "homepage"
+        label: "Homepage Content"
+        file: "src/content/home.json"
+        format: json
+        fields:
+          - { label: "Hero Headline", name: "heroHeadline", widget: "string", default: "Precision Patternmaking. Confident Development. Clear Communication." }
+          - { label: "Hero Subtext", name: "heroSubtext", widget: "text" }
+          - { label: "Creative Vision Heading", name: "creativeVisionHeading", widget: "string" }
+          - { label: "Creative Vision Body", name: "creativeVisionBody", widget: "markdown" }
+          - { label: "Our Approach Text", name: "ourApproachText", widget: "markdown" }
+
+  # ----- BLOG POSTS -----
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "XYZ Pattern Services" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  # ----- SERVICES -----
+  - name: "services"
+    label: "Services"
+    folder: "src/content/services"
+    create: true
+    fields:
+      - { label: "Service Name", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Short Description", name: "shortDesc", widget: "text" }
+      - { label: "Full Description", name: "body", widget: "markdown" }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+
+  # ----- TESTIMONIALS -----
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "src/content/testimonials"
+    create: true
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Logo", name: "logo", widget: "image", required: false }

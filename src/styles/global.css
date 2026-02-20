@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand fonts */
+  --font-inter: 'Inter', sans-serif;
+  --font-spartan: 'League Spartan', sans-serif;
+
+  /* Brand colours */
+  --color-primary: #F7931E;
+  --color-primary-dark: #e07f0e;
+  --color-primary-yellow: #FEC22C;
+  --color-gray-section: rgba(231, 231, 231, 0.5);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-spartan);
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-inter);
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-[#F7931E] text-white px-5 py-2.5 rounded-[10px] shadow-sm font-medium text-xl leading-none cursor-pointer transition-colors hover:bg-[#e07f0e];
+    font-family: var(--font-spartan);
+  }
+  .btn-black {
+    @apply inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 rounded-[10px] font-medium text-xl leading-none cursor-pointer transition-colors hover:bg-gray-900;
+    font-family: var(--font-spartan);
+  }
+  .btn-black-orange {
+    @apply inline-flex items-center gap-2 bg-black text-[#F7931E] px-5 py-2.5 rounded-[10px] font-medium text-xl leading-none cursor-pointer transition-colors hover:bg-gray-900;
+    font-family: var(--font-spartan);
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-[1920px] mx-auto px-4 sm:px-8 lg:px-[71px];
+  }
+
+  /* Section heading (H2 – Inter Regular 56px) */
+  .heading-2 {
+    font-family: var(--font-inter);
+    @apply text-5xl lg:text-[56px] font-normal leading-none tracking-[-0.02em];
+  }
+
+  /* Section heading (H3 – Inter Regular 36px) */
+  .heading-3 {
+    font-family: var(--font-inter);
+    @apply text-3xl lg:text-[36px] font-normal leading-none tracking-[-0.02em];
+  }
+
+  /* H1 */
+  .heading-1 {
+    font-family: var(--font-inter);
+    @apply text-5xl lg:text-[75px] font-light leading-none tracking-[-0.02em];
+  }
+
+  /* Body text */
+  .body-text {
+    font-family: var(--font-spartan);
+    @apply text-xl leading-7 font-normal;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "xyz-pattern-poc",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "wrangler pages deploy ./dist"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.3.0",
+    "alpinejs": "^3.14.3",
+    "astro": "^5.1.3",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "wrangler": "^3.95.0"
+  }
+}

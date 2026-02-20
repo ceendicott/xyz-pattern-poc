@@ -1,0 +1,64 @@
+---
+// Figma assets
+const photo = 'https://www.figma.com/api/mcp/asset/cfb8e76d-d3f6-4599-8cca-8db018c97a38';
+const arrowIcon = 'https://www.figma.com/api/mcp/asset/d23b66d7-9476-4236-a382-ea67dc884058';
+---
+
+<section class="bg-white py-20 lg:py-28">
+  <div class="section-container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Left: Photo -->
+      <div class="rounded-[5px] overflow-hidden">
+        <img
+          src={photo}
+          alt="Designer working at a drafting table"
+          class="w-full h-[450px] lg:h-[688px] object-cover rounded-[5px]"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Right: Content -->
+      <div class="flex flex-col gap-6">
+        <h2
+          class="heading-2 text-[#F7931E]"
+          style="text-shadow: 0px 1px 1px rgba(0,0,0,0.5)"
+        >
+          Where creative vision meets technical execution.
+        </h2>
+
+        <div class="body-text text-black space-y-4" style="font-family: var(--font-spartan)">
+          <p>
+            At XYZ Pattern Services, we guide brands through the full product
+            development journey, from first concept to factory-ready patterns.
+            With over three decades of industry experience, we provide the
+            technical expertise, fit consistency, and process clarity that allow
+            designers, founders, and product teams to move forward with
+            confidence.
+          </p>
+          <p>
+            Whether you're launching your first collection or refining a
+            well-established line, we support you with patterns that are
+            accurate, scalable, and built to perform in production.
+          </p>
+        </div>
+
+        <div class="mt-2">
+          <a
+            href="/about"
+            class="btn-primary"
+            style="box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.5)"
+          >
+            Learn More
+            <img
+              src={arrowIcon}
+              alt=""
+              class="w-[22px] h-[17px] rotate-45"
+            />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
