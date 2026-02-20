@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Staging environment - block all crawlers
+# Remove this file and the _headers noindex before production launch
