@@ -9,7 +9,6 @@
     "deploy": "npx wrangler deploy"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.3.0",
     "@astrojs/sitemap": "^3.7.0",
     "alpinejs": "^3.14.3",
     "astro": "^5.1.3",
